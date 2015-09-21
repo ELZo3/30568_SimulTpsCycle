@@ -8,7 +8,9 @@ import com.kuka.roboticsAPI.conditionModel.ForceCondition;
 import com.kuka.roboticsAPI.controllerModel.Controller;
 import com.kuka.roboticsAPI.deviceModel.JointPosition;
 import com.kuka.roboticsAPI.deviceModel.LBR;
+import com.kuka.roboticsAPI.geometricModel.Frame;
 import com.kuka.roboticsAPI.geometricModel.Tool;
+import com.kuka.roboticsAPI.geometricModel.World;
 import com.kuka.roboticsAPI.geometricModel.math.CoordinateAxis;
 import com.kuka.roboticsAPI.motionModel.Spline;
 
@@ -68,12 +70,17 @@ public class RobotApplication extends RoboticsAPIApplication {
 		UsedTool.getFrame("TCP").move(linRel(0,0,-10).setCartVelocity(cart_vel));
 		
 		UsedTool.getFrame("TCP").move(linRel(200,0,0).setCartVelocity(cart_vel).setJointJerkRel(0.2).breakWhen(X_contact));
+		Frame X1=robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame());
 		System.out.println("X: First point");
 		UsedTool.getFrame("TCP").moveAsync(linRel(-10,0,0).setCartVelocity(cart_vel).setJointJerkRel(0.2));
 		UsedTool.getFrame("TCP").move(linRel(-400,0,0).setCartVelocity(cart_vel).setJointJerkRel(0.2).breakWhen(X_contact));
 		System.out.println("X: Second point");
+		Frame X2=robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame());
 		
+		Frame X_centre = X1.copyWithRedundancy();
+		X_centre.setZ((X1.getZ()+X2.getZ())/2);
 		
+		UsedTool.getFrame("TCP").move(lin(X_centre).setCartVelocity(25));
 		//process();
 		
 		
