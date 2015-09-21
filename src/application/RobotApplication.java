@@ -53,12 +53,12 @@ public class RobotApplication extends RoboticsAPIApplication {
 	public void run() {
 		/*-----------------[Start Position]--------------------------*/
 		JointPosition _start = new JointPosition(
-				Math.toRadians(49.12),
-				Math.toRadians(63.02),
+				Math.toRadians(49.89),
+				Math.toRadians(68.53),
 				Math.toRadians(0),
-				Math.toRadians(-75.33),
-				Math.toRadians(94.68),
-				Math.toRadians(-93.07),
+				Math.toRadians(-74.31),
+				Math.toRadians(94.73),
+				Math.toRadians(-92.56),
 				Math.toRadians(0)
 				);
 		UsedTool.getFrame("TCP").moveAsync(ptp(_start).setJointVelocityRel(0.3));
