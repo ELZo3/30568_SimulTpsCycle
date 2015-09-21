@@ -68,9 +68,9 @@ public class RobotApplication extends RoboticsAPIApplication {
 		UsedTool.getFrame("TCP").move(linRel(0,0,-10).setCartVelocity(cart_vel));
 		
 		UsedTool.getFrame("TCP").move(linRel(200,0,0).setCartVelocity(cart_vel).setJointJerkRel(0.2).breakWhen(X_contact));
-		System.out.println("First point");
+		System.out.println("X: First point");
 		UsedTool.getFrame("TCP").move(linRel(-400,0,0).setCartVelocity(cart_vel).setJointJerkRel(0.2).breakWhen(X_contact));
-		System.out.println("Second point");
+		System.out.println("X: Second point");
 		
 		
 		//process();
