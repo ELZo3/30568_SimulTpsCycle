@@ -39,6 +39,7 @@ public class RobotApplication extends RoboticsAPIApplication {
 	private ForceCondition Y_contact;
 	private ForceCondition Z_contact;
 	private Double cart_vel;
+	private Frame P1, P2, P3;
 
 	public void initialize() {
 		controller = (Controller) getContext().getControllers().toArray()[0];
@@ -55,46 +56,26 @@ public class RobotApplication extends RoboticsAPIApplication {
 	public void run() {
 		/*-----------------[Start Position]--------------------------*/
 		JointPosition _start = new JointPosition(
-				Math.toRadians(49.89),
-				Math.toRadians(68.53),
+				Math.toRadians(42.57),
+				Math.toRadians(62.01),
 				Math.toRadians(0),
-				Math.toRadians(-74.31),
-				Math.toRadians(94.73),
-				Math.toRadians(-92.56),
+				Math.toRadians(-108.13),
+				Math.toRadians(88.17),
+				Math.toRadians(-88.86),
 				Math.toRadians(0)
 				);
 		UsedTool.getFrame("TCP").moveAsync(ptp(_start).setJointVelocityRel(0.3));
 		/*-----------------------------------------------------------*/
 		/*-----------------[Base Calibration]--------------------------*/
-		UsedTool.getFrame("TCP").move(linRel(0,0,200).setCartVelocity(cart_vel).setJointJerkRel(0.2).breakWhen(Z_contact));
-		UsedTool.getFrame("TCP").move(linRel(0,0,-10).setCartVelocity(cart_vel));
-		
-		UsedTool.getFrame("TCP").move(linRel(200,0,0).setCartVelocity(cart_vel).setJointJerkRel(0.2).breakWhen(X_contact));
-		Frame X1=robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame());
-		System.out.println("X: First point");
-		UsedTool.getFrame("TCP").moveAsync(linRel(-10,0,0).setCartVelocity(cart_vel).setJointJerkRel(0.2));
-		UsedTool.getFrame("TCP").move(linRel(-400,0,0).setCartVelocity(cart_vel).setJointJerkRel(0.2).breakWhen(X_contact));
-		System.out.println("X: Second point");
-		Frame X2=robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame());
-		
-		Frame centre = X1.copyWithRedundancy();
-		centre.setZ((X1.getZ()+X2.getZ())/2);
-		
-		UsedTool.getFrame("TCP").move(lin(centre).setCartVelocity(100));
-		
-		UsedTool.getFrame("TCP").move(linRel(0,130,0).setCartVelocity(cart_vel).setJointJerkRel(0.2).breakWhen(Y_contact));
-		Frame Y1=robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame());
-		System.out.println("Y: First point");
-		UsedTool.getFrame("TCP").moveAsync(linRel(0,-30,0).setCartVelocity(cart_vel).setJointJerkRel(0.2));
-		UsedTool.getFrame("TCP").move(linRel(0,-150,0).setCartVelocity(cart_vel).setJointJerkRel(0.2).breakWhen(Y_contact));
-		System.out.println("Y: Second point");
-		Frame Y2=robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame());
-		
-		centre.setX((Y1.getX()+Y2.getX())/2);
-		centre.setX((Y1.getY()+Y2.getY())/2);
-		System.out.println("Moving to center ...");
-		UsedTool.getFrame("TCP").move(lin(centre).setCartVelocity(100));
-		
+		P1=getApplicationData().getFrame("/Process").copyWithRedundancy();
+		P2=getApplicationData().getFrame("/Process").copyWithRedundancy();
+		P3=getApplicationData().getFrame("/Process").copyWithRedundancy();
+		// Saving the first frame
+		UsedTool.getFrame("TCP").move(linRel(0,20,0).setCartVelocity(160).breakWhen(Y_contact));
+		P1.setX(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getX());
+		P1.setY(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getY());
+		// Saving the seconf frame
+		UsedTool.getFrame("TCP").moveAsync(linRel(-30,-10,0).setCartVelocity(160);
 		
 		
 		//process();
@@ -108,7 +89,8 @@ public class RobotApplication extends RoboticsAPIApplication {
 				spl(getApplicationData().getFrame("/Process/P1")),
 				spl(getApplicationData().getFrame("/Process/P2")),
 				spl(getApplicationData().getFrame("/Process/P3")),
-				spl(getApplicationData().getFrame("/Process/P4"))
+				spl(getApplicationData().getFrame("/Process/P4")),
+				spl(getApplicationData().getFrame("/Process/P5"))
 				).setCartVelocity(150);
 		
 		UsedTool.getFrame("TCP").move(process);
