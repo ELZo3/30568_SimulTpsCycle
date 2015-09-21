@@ -82,12 +82,12 @@ public class RobotApplication extends RoboticsAPIApplication {
 		P2.setY(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getY());
 		System.out.println("Second position saved !");
 		// Saving the third frame
-		UsedTool.getFrame("TCP").moveAsync(linRel(-150,-20,0).setCartVelocity(160));
-		UsedTool.getFrame("TCP").moveAsync(linRel(0,50,0).setCartVelocity(160));
+		UsedTool.getFrame("TCP").moveAsync(linRel(-150,-30,0).setCartVelocity(160).setBlendingRel(0.1));
+		UsedTool.getFrame("TCP").moveAsync(linRel(0,60,0).setCartVelocity(160));
 		UsedTool.getFrame("TCP").move(linRel(200,0,0).setJointJerkRel(0.2).setCartVelocity(80).breakWhen(X_contact));
 		P3.setX(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getX());
 		P3.setY(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getY());
-		System.out.println("Second position saved !");
+		System.out.println("Third position saved !");
 		//process();
 		
 		
