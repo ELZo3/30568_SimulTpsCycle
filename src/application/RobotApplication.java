@@ -10,6 +10,7 @@ import com.kuka.roboticsAPI.deviceModel.JointPosition;
 import com.kuka.roboticsAPI.deviceModel.LBR;
 import com.kuka.roboticsAPI.geometricModel.Tool;
 import com.kuka.roboticsAPI.geometricModel.math.CoordinateAxis;
+import com.kuka.roboticsAPI.motionModel.Spline;
 
 /**
  * Implementation of a robot application.
@@ -58,9 +59,21 @@ public class RobotApplication extends RoboticsAPIApplication {
 				);
 		UsedTool.getFrame("TCP").moveAsync(ptp(_start).setJointVelocityRel(0.3));
 		/*-----------------------------------------------------------*/
+		process();
+		//UsedTool.getFrame("TCP").move(linRel(0,0,200).setCartVelocity(cart_vel).setJointJerkRel(0.5).breakWhen(Z_contact));
 		
-		UsedTool.getFrame("TCP").move(linRel(0,0,200).setCartVelocity(cart_vel).setJointJerkRel(0.5).breakWhen(Z_contact));
+	}
+	
+	public void process()
+	{
+		Spline process = new Spline(
+				spl(getApplicationData().getFrame("/Process/P1")),
+				spl(getApplicationData().getFrame("/Process/P2")),
+				spl(getApplicationData().getFrame("/Process/P3")),
+				spl(getApplicationData().getFrame("/Process/P4"))
+				).setCartVelocity(150);
 		
+		UsedTool.getFrame("TCP").move(process);
 	}
 
 	/**
