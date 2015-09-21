@@ -77,10 +77,26 @@ public class RobotApplication extends RoboticsAPIApplication {
 		System.out.println("X: Second point");
 		Frame X2=robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame());
 		
-		Frame X_centre = X1.copyWithRedundancy();
-		X_centre.setZ((X1.getZ()+X2.getZ())/2);
+		Frame centre = X1.copyWithRedundancy();
+		centre.setZ((X1.getZ()+X2.getZ())/2);
 		
-		UsedTool.getFrame("TCP").move(lin(X_centre).setCartVelocity(25));
+		UsedTool.getFrame("TCP").move(lin(centre).setCartVelocity(100));
+		
+		UsedTool.getFrame("TCP").move(linRel(0,200,0).setCartVelocity(cart_vel).setJointJerkRel(0.2).breakWhen(Y_contact));
+		Frame Y1=robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame());
+		System.out.println("Y: First point");
+		UsedTool.getFrame("TCP").moveAsync(linRel(0,-10,0).setCartVelocity(cart_vel).setJointJerkRel(0.2));
+		UsedTool.getFrame("TCP").move(linRel(0,-400,0).setCartVelocity(cart_vel).setJointJerkRel(0.2).breakWhen(Y_contact));
+		System.out.println("Y: Second point");
+		Frame Y2=robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame());
+		
+		centre.setX((Y1.getX()+Y2.getX()/2));
+		centre.setX((Y1.getY()+Y2.getY()/2));
+		
+		UsedTool.getFrame("TCP").move(lin(centre).setCartVelocity(100));
+		
+		
+		
 		//process();
 		
 		
