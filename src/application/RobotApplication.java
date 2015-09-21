@@ -72,7 +72,7 @@ public class RobotApplication extends RoboticsAPIApplication {
 		
 		
 		
-		process();
+		//process();
 		
 		
 	}
