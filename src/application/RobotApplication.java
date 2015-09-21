@@ -74,8 +74,9 @@ public class RobotApplication extends RoboticsAPIApplication {
 		UsedTool.getFrame("TCP").move(linRel(0,20,0).setCartVelocity(160).breakWhen(Y_contact));
 		P1.setX(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getX());
 		P1.setY(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getY());
+		System.out.println("First position saved !");
 		// Saving the seconf frame
-		UsedTool.getFrame("TCP").moveAsync(linRel(-30,-10,0).setCartVelocity(160);
+		UsedTool.getFrame("TCP").moveAsync(linRel(-30,-10,0).setCartVelocity(160));
 		
 		
 		//process();
