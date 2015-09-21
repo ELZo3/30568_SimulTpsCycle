@@ -33,6 +33,8 @@ public class RobotApplication extends RoboticsAPIApplication {
 	private Controller controller;
 	private LBR robot;
 	private Tool UsedTool;
+	private ForceCondition X_contact;
+	private ForceCondition Y_contact;
 	private ForceCondition Z_contact;
 	private Double cart_vel;
 
@@ -41,6 +43,8 @@ public class RobotApplication extends RoboticsAPIApplication {
 		robot = (LBR) controller.getDevices().toArray()[0];
 		UsedTool = getApplicationData().createFromTemplate("UsedTool");
 		UsedTool.attachTo(robot.getFlange());
+		X_contact = ForceCondition.createNormalForceCondition(UsedTool.getFrame("TCP"), CoordinateAxis.X, 5);
+		Y_contact = ForceCondition.createNormalForceCondition(UsedTool.getFrame("TCP"), CoordinateAxis.Y, 5);
 		Z_contact = ForceCondition.createNormalForceCondition(UsedTool.getFrame("TCP"), CoordinateAxis.Z, 5);
 		
 		cart_vel=120.0;
@@ -49,18 +53,27 @@ public class RobotApplication extends RoboticsAPIApplication {
 	public void run() {
 		/*-----------------[Start Position]--------------------------*/
 		JointPosition _start = new JointPosition(
-				Math.toRadians(47.79),
-				Math.toRadians(63.82),
+				Math.toRadians(49.12),
+				Math.toRadians(63.02),
 				Math.toRadians(0),
-				Math.toRadians(-80.60),
-				Math.toRadians(89.87),
-				Math.toRadians(-90.82),
+				Math.toRadians(-75.33),
+				Math.toRadians(94.68),
+				Math.toRadians(-93.07),
 				Math.toRadians(0)
 				);
 		UsedTool.getFrame("TCP").moveAsync(ptp(_start).setJointVelocityRel(0.3));
 		/*-----------------------------------------------------------*/
+		/*-----------------[Base Calibration]--------------------------*/
+		UsedTool.getFrame("TCP").move(linRel(0,0,200).setCartVelocity(cart_vel).setJointJerkRel(0.2).breakWhen(Z_contact));
+		UsedTool.getFrame("TCP").move(linRel(0,0,10).setCartVelocity(cart_vel));
+		
+		UsedTool.getFrame("TCP").move(linRel(200,0,0).setCartVelocity(cart_vel).setJointJerkRel(0.2).breakWhen(X_contact));
+		UsedTool.getFrame("TCP").move(linRel(-400,0,0).setCartVelocity(cart_vel).setJointJerkRel(0.2).breakWhen(X_contact));
+		
+		
+		
 		process();
-		//UsedTool.getFrame("TCP").move(linRel(0,0,200).setCartVelocity(cart_vel).setJointJerkRel(0.5).breakWhen(Z_contact));
+		
 		
 	}
 	
