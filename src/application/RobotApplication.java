@@ -90,9 +90,9 @@ public class RobotApplication extends RoboticsAPIApplication {
 		System.out.println("Y: Second point");
 		Frame Y2=robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame());
 		
-		centre.setX((Y1.getX()+Y2.getX()/2));
-		centre.setX((Y1.getY()+Y2.getY()/2));
-		
+		centre.setX((Y1.getX()+Y2.getX())/2);
+		centre.setX((Y1.getY()+Y2.getY())/2);
+		System.out.println("Moving to center ...");
 		UsedTool.getFrame("TCP").move(lin(centre).setCartVelocity(100));
 		
 		
