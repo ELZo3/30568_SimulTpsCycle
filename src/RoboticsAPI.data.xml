@@ -5,6 +5,11 @@
     </world>
     <objectTemplates>
         <toolTemplate class="" name="UsedTool">
+            <frames>
+                <frame name="TCP">
+                    <transformation a="0.0" b="0.0" c="0.0" x="-23.0" y="20.0" z="90.0"/>
+                </frame>
+            </frames>
             <loadData cogA="0.0" cogB="0.0" cogC="0.0" cogX="0.0" cogY="0.0" cogZ="0.0" inertiaX="0.0" inertiaY="0.0" inertiaZ="0.0" mass="0.0"/>
         </toolTemplate>
     </objectTemplates>
