@@ -57,12 +57,12 @@ public class RobotApplication extends RoboticsAPIApplication {
 		/*-----------------[Start Position]--------------------------*/
 		JointPosition _start = new JointPosition(
 				Math.toRadians(42.57),
-				Math.toRadians(62.01),
+				Math.toRadians(62.42),
 				Math.toRadians(0),
-				Math.toRadians(-108.13),
-				Math.toRadians(88.17),
-				Math.toRadians(-88.86),
-				Math.toRadians(0)
+				Math.toRadians(-107.66),
+				Math.toRadians(87.88),
+				Math.toRadians(-88.79),
+				Math.toRadians(29.21)
 				);
 		UsedTool.getFrame("TCP").moveAsync(ptp(_start).setJointVelocityRel(0.3));
 		/*-----------------------------------------------------------*/
@@ -71,12 +71,15 @@ public class RobotApplication extends RoboticsAPIApplication {
 		P2=getApplicationData().getFrame("/Process").copyWithRedundancy();
 		P3=getApplicationData().getFrame("/Process").copyWithRedundancy();
 		// Saving the first frame
-		UsedTool.getFrame("TCP").move(linRel(0,20,0).setJointJerkRel(0.2).setCartVelocity(160).breakWhen(Y_contact));
+		UsedTool.getFrame("TCP").move(linRel(0,200,0).setJointJerkRel(0.2).setCartVelocity(160).breakWhen(Y_contact));
 		P1.setX(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getX());
 		P1.setY(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getY());
 		System.out.println("First position saved !");
 		// Saving the seconf frame
-		UsedTool.getFrame("TCP").moveAsync(linRel(-30,-10,0).setCartVelocity(160));
+		UsedTool.getFrame("TCP").moveAsync(linRel(-30,-20,0).setCartVelocity(160));
+		UsedTool.getFrame("TCP").move(linRel(0,200,0).setJointJerkRel(0.2).setCartVelocity(160).breakWhen(Y_contact));
+		P2.setX(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getX());
+		P2.setY(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getY());
 		
 		
 		//process();
