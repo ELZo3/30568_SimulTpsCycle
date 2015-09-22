@@ -82,6 +82,7 @@ public class RobotApplication extends RoboticsAPIApplication {
 		UsedTool.getFrame("TCP").move(linRel(0,0,300).setJointJerkRel(0.2).setJointAccelerationRel(0.1).setCartVelocity(50).breakWhen(Z_contact));
 		P4.setY(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getY());
 		System.out.println("First position saved !");
+		UsedTool.getFrame("TCP").move(linRel(0,-100,-20).setJointJerkRel(0.2).setJointAccelerationRel(0.1).setCartVelocity(100));
 		// Saving the second frame
 		UsedTool.getFrame("TCP").move(linRel(0,200,0).setJointJerkRel(0.2).setCartVelocity(50).setJointAccelerationRel(0.1).breakWhen(Y_contact));
 		P1.setX(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getX()+2.5);
