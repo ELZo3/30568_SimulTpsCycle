@@ -53,9 +53,9 @@ public class RobotApplication extends RoboticsAPIApplication {
 		robot = (LBR) controller.getDevices().toArray()[0];
 		UsedTool = getApplicationData().createFromTemplate("UsedTool");
 		UsedTool.attachTo(robot.getFlange());
-		X_contact = ForceCondition.createNormalForceCondition(UsedTool.getFrame("TCP"), CoordinateAxis.X, 5);
-		Y_contact = ForceCondition.createNormalForceCondition(UsedTool.getFrame("TCP"), CoordinateAxis.Y, 5);
-		Z_contact = ForceCondition.createNormalForceCondition(UsedTool.getFrame("TCP"), CoordinateAxis.Z, 5);
+		X_contact = ForceCondition.createNormalForceCondition(UsedTool.getFrame("TCP"), CoordinateAxis.X, 3);
+		Y_contact = ForceCondition.createNormalForceCondition(UsedTool.getFrame("TCP"), CoordinateAxis.Y, 3);
+		Z_contact = ForceCondition.createNormalForceCondition(UsedTool.getFrame("TCP"), CoordinateAxis.Z, 3);
 
 		cart_vel=120.0;
 	}
@@ -88,13 +88,13 @@ public class RobotApplication extends RoboticsAPIApplication {
 		UsedTool.getFrame("TCP").moveAsync(linRel(0,0,30).setJointJerkRel(0.2).setJointAccelerationRel(0.1).setBlendingRel(0.1).setCartVelocity(100));
 		// Saving the second frame
 		UsedTool.getFrame("TCP").move(linRel(0,200,0).setJointJerkRel(0.2).setCartVelocity(50).setJointAccelerationRel(0.1).breakWhen(Y_contact));
-		P1.setX(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getX()+3.1);
+		P1.setX(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getX()+3.2);
 		P1.setZ(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getZ());
 		System.out.println("Second position saved !");
 		// Saving the third frame
 		UsedTool.getFrame("TCP").moveAsync(linRel(-30,-20,0).setBlendingRel(0.1).setCartVelocity(160));
 		UsedTool.getFrame("TCP").move(linRel(0,200,0).setJointJerkRel(0.2).setCartVelocity(50).setJointAccelerationRel(0.1).breakWhen(Y_contact));
-		P2.setX(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getX()+3.1);
+		P2.setX(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getX()+3.2);
 		P2.setZ(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getZ());
 		System.out.println("Third position saved !");
 		// Saving the fourth frame
