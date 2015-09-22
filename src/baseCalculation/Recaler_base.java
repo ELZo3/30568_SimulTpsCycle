@@ -22,7 +22,7 @@ public class Recaler_base {
 		
 		// c is the result of the scalar product of (a,b) vector and (P1.getX, P1.getY) vector
 		
-		Vector V_P1 = new Vector(P1.getX(), P1.getY(), 0);
+		Vector V_P1 = new Vector(P1.getZ(), P1.getX(), 0);
 		Vector u = new Vector(Z_vector.getA(),Z_vector.getB(),0);
 		Z_vector.setC(-u.dotProduct(V_P1)); //c
 		
@@ -35,7 +35,7 @@ public class Recaler_base {
 		X_vector.setB(P2.getX()-P1.getX());		// b'
 		
 		//c' is the result of the scalar product of (a',b') and (P3.getX, P3.getY) vector
-		Vector V_P3 = new Vector(P3.getX(), P3.getY(), 0);
+		Vector V_P3 = new Vector(P3.getZ(), P3.getX(), 0);
 		Vector v = new Vector(X_vector.getA(),X_vector.getB(),0);
 		X_vector.setC(-v.dotProduct(V_P3)); //c'
 		
@@ -44,11 +44,11 @@ public class Recaler_base {
 		// Thus we need to define determinant
 		
 		double det = (Z_vector.getA()*X_vector.getB())-(X_vector.getA()*Z_vector.getB());
-		double detx= (X_vector.getC()*Z_vector.getB())-(Z_vector.getC()*X_vector.getB());
-		double dety= (X_vector.getA()*Z_vector.getC())-(Z_vector.getA()*X_vector.getC());
+		double detz= (X_vector.getC()*Z_vector.getB())-(Z_vector.getC()*X_vector.getB());
+		double detx= (X_vector.getA()*Z_vector.getC())-(Z_vector.getA()*X_vector.getC());
 		
-		Base.setX(-dety/det);
-		Base.setZ(detx/det);
+		Base.setX(detx/det);
+		Base.setZ(detz/det);
 		
 		if(Base.getX()==P1.getX())
 		{
