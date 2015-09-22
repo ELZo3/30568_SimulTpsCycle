@@ -17,8 +17,8 @@ public class Recaler_base {
 		
 		Vector Z_vector = new Vector(0,0,0);
 		
-		Z_vector.setA(P2.getZ()-P1.getZ());			// a
-		Z_vector.setB(-(P2.getX()-P1.getX()));		// b
+		Z_vector.setB(P2.getZ()-P1.getZ());			// a
+		Z_vector.setA(-(P2.getX()-P1.getX()));		// b
 		
 		// c is the result of the scalar product of (a,b) vector and (P1.getX, P1.getY) vector
 		
