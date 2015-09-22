@@ -51,15 +51,9 @@ public class Recaler_base {
 		Base.setZ(detz/det);
 		Base.setY(P4.getY());
 		
-		if(Base.getX()==P1.getX())
-		{
-			return Base;
-		}
-		else
-		{
-			Base.setAlphaRad(Base.getAlphaRad()+Math.atan((Base.getX()-P1.getX())/((Base.getZ()-P1.getZ()))));
-			return Base;
-		}
+		
+		return Base;
+		
 		
 		
 		
