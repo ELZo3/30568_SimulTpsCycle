@@ -3,7 +3,7 @@
     <world>
         <gravitation x="0.0" y="0.0" z="9.81"/>
         <frame name="Process">
-            <transformation a="-0.6376707293153715" b="1.5283670864612295" c="0.7692304866992598" x="520.954899593923" y="-232.7937097719002" z="324.72018194352233"/>
+            <transformation a="-0.6052204951823492" b="1.5283670864612295" c="0.7692304866992598" x="495.40817972695504" y="-232.7937097719002" z="324.7692062819872"/>
             <additionalInformation>
                 <info key="LastModificationTime" type="java.lang.Long" value="1442913599540"/>
                 <info base="LBR_iiwa_14_R820_1" controller="KUKA_Sunrise_Cabinet_1" device="LBR_iiwa_14_R820_1" tcpName="UsedTool/TCP" tool="UsedTool" type="com.kuka.roboticsAPI.deviceModel.TeachInformation">
