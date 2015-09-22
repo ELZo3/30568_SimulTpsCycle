@@ -84,7 +84,7 @@ public class Demo extends RoboticsAPIApplication {
 		robot.move(ptp(start).setJointVelocityRel(0.5));
 		
 		System.out.println("Detection de contact selon X");
-		IMotionContainer move1 =UsedTool.getFrame("TCP").move(linRel().setXOffset(-300).setCartVelocity(150).breakWhen(X_contact));
+		IMotionContainer move1 =UsedTool.getFrame("TCP").move(linRel().setXOffset(-200).setCartVelocity(150).breakWhen(X_contact));
 		if(move1.getFiredBreakConditionInfo()!=null)
 		{
 			System.out.println("Collision détectée");
