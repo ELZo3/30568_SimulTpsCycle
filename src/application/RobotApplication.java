@@ -100,13 +100,21 @@ public class RobotApplication extends RoboticsAPIApplication {
 		AbstractFrame new_base = rb.calcul_base(P1, P2, P3, getApplicationData().getFrame("/Process"));
 		UsedTool.getFrame("TCP").moveAsync(linRel(-20,0,0).setCartVelocity(160));
 		UsedTool.getFrame("TCP").moveAsync(linRel(0,0,-130).setCartVelocity(160));
-		UsedTool.getFrame("TCP").move(ptp(new_base).setJointVelocityRel(0.1));
+		//UsedTool.getFrame("TCP").move(ptp(new_base).setJointVelocityRel(0.1));
 		
 		
-
+				
+		new_base.setRedundancyInformation(robot, getApplicationData().getFrame("/Process").getRedundancyInformationForDevice(robot));
+		
+		final IPersistenceEngine engine = this.getContext().getEngine(IPersistenceEngine.class);
+		final XmlApplicationDataSource defaultDataSource = (XmlApplicationDataSource) engine.getDefaultDataSource();
+		
+		defaultDataSource.changeFrameTransformation(getApplicationData().getFrame("/Process"), new_base.transformationFromWorld());
+		
+		defaultDataSource.saveFile(false);
 		
 		
-		//process();
+		process();
 		
 		
 	}
