@@ -3,6 +3,7 @@ package application;
 
 import baseCalculation.Recaler_base;
 
+import com.kuka.roboticsAPI.RoboticsAPIContext;
 import com.kuka.roboticsAPI.applicationModel.RoboticsAPIApplication;
 import static com.kuka.roboticsAPI.motionModel.BasicMotions.*;
 
@@ -10,11 +11,15 @@ import com.kuka.roboticsAPI.conditionModel.ForceCondition;
 import com.kuka.roboticsAPI.controllerModel.Controller;
 import com.kuka.roboticsAPI.deviceModel.JointPosition;
 import com.kuka.roboticsAPI.deviceModel.LBR;
+import com.kuka.roboticsAPI.geometricModel.AbstractFrame;
 import com.kuka.roboticsAPI.geometricModel.Frame;
+import com.kuka.roboticsAPI.geometricModel.ObjectFrame;
 import com.kuka.roboticsAPI.geometricModel.Tool;
 import com.kuka.roboticsAPI.geometricModel.World;
 import com.kuka.roboticsAPI.geometricModel.math.CoordinateAxis;
 import com.kuka.roboticsAPI.motionModel.Spline;
+import com.kuka.roboticsAPI.persistenceModel.IPersistenceEngine;
+import com.kuka.roboticsAPI.persistenceModel.XmlApplicationDataSource;
 
 /**
  * Implementation of a robot application.
@@ -74,13 +79,13 @@ public class RobotApplication extends RoboticsAPIApplication {
 		P3=getApplicationData().getFrame("/Process").copyWithRedundancy();
 		// Saving the first frame
 		UsedTool.getFrame("TCP").move(linRel(0,200,0).setJointJerkRel(0.2).setCartVelocity(80).breakWhen(Y_contact));
-		P1.setX(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getX());
+		P1.setX(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getX()+2.5);
 		P1.setZ(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getZ());
 		System.out.println("First position saved !");
 		// Saving the second frame
 		UsedTool.getFrame("TCP").moveAsync(linRel(-30,-20,0).setCartVelocity(160));
 		UsedTool.getFrame("TCP").move(linRel(0,200,0).setJointJerkRel(0.2).setCartVelocity(80).breakWhen(Y_contact));
-		P2.setX(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getX());
+		P2.setX(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getX()+2.5);
 		P2.setZ(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getZ());
 		System.out.println("Second position saved !");
 		// Saving the third frame
@@ -88,16 +93,17 @@ public class RobotApplication extends RoboticsAPIApplication {
 		UsedTool.getFrame("TCP").moveAsync(linRel(0,80,0).setCartVelocity(160));
 		UsedTool.getFrame("TCP").move(linRel(200,0,0).setJointJerkRel(0.2).setCartVelocity(80).breakWhen(X_contact));
 		P3.setX(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getX());
-		P3.setZ(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getZ());
+		P3.setZ(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getZ()-2.5);
 		System.out.println("Third position saved !");
 		
 		Recaler_base rb = new Recaler_base();
-		Frame new_base = rb.calcul_base(P1, P2, P3, getApplicationData().getFrame("/Process"));
+		AbstractFrame new_base = rb.calcul_base(P1, P2, P3, getApplicationData().getFrame("/Process"));
 		UsedTool.getFrame("TCP").moveAsync(linRel(-20,0,0).setCartVelocity(160));
 		UsedTool.getFrame("TCP").moveAsync(linRel(0,0,-130).setCartVelocity(160));
 		UsedTool.getFrame("TCP").move(ptp(new_base).setJointVelocityRel(0.1));
 		
 		
+
 		
 		
 		//process();
@@ -117,6 +123,7 @@ public class RobotApplication extends RoboticsAPIApplication {
 		
 		UsedTool.getFrame("TCP").move(process);
 	}
+	
 
 	/**
 	 * Auto-generated method stub. Do not modify the contents of this method.
