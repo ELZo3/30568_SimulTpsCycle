@@ -88,13 +88,13 @@ public class RobotApplication extends RoboticsAPIApplication {
 		UsedTool.getFrame("TCP").moveAsync(linRel(0,0,30).setJointJerkRel(0.2).setJointAccelerationRel(0.1).setBlendingRel(0.1).setCartVelocity(100));
 		// Saving the second frame
 		UsedTool.getFrame("TCP").move(linRel(0,200,0).setJointJerkRel(0.2).setCartVelocity(50).setJointAccelerationRel(0.1).breakWhen(Y_contact));
-		P1.setX(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getX()+3);
+		P1.setX(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getX()+2.5);
 		P1.setZ(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getZ());
 		System.out.println("Second position saved !");
 		// Saving the third frame
 		UsedTool.getFrame("TCP").moveAsync(linRel(-30,-20,0).setBlendingRel(0.1).setCartVelocity(160));
 		UsedTool.getFrame("TCP").move(linRel(0,200,0).setJointJerkRel(0.2).setCartVelocity(50).setJointAccelerationRel(0.1).breakWhen(Y_contact));
-		P2.setX(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getX()+3);
+		P2.setX(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getX()+2.5);
 		P2.setZ(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getZ());
 		System.out.println("Third position saved !");
 		// Saving the fourth frame
@@ -102,13 +102,13 @@ public class RobotApplication extends RoboticsAPIApplication {
 		UsedTool.getFrame("TCP").moveAsync(linRel(0,80,0).setCartVelocity(160).setBlendingRel(0.1));
 		UsedTool.getFrame("TCP").move(linRel(200,0,0).setJointJerkRel(0.2).setCartVelocity(50).setJointAccelerationRel(0.1).breakWhen(X_contact));
 		P3.setX(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getX());
-		P3.setZ(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getZ()-3);
+		P3.setZ(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getZ()-2.5);
 		System.out.println("Fourth position saved !");
 
 		Recaler_base rb = new Recaler_base();
 		AbstractFrame new_base = rb.calcul_base(P1, P2, P3,P4, getApplicationData().getFrame("/Process"));
 		UsedTool.getFrame("TCP").moveAsync(linRel(-20,0,0).setCartVelocity(160).setBlendingRel(0.1));
-		UsedTool.getFrame("TCP").moveAsync(linRel(50,50,-160).setCartVelocity(160).setBlendingRel(0.1));
+		UsedTool.getFrame("TCP").moveAsync(linRel(50,50,-200).setCartVelocity(160).setBlendingRel(0.1));
 		UsedTool.getFrame("TCP").move(ptp(new_base).setJointVelocityRel(0.2));
 
 
