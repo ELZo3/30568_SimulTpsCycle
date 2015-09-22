@@ -3,17 +3,22 @@ package application;
 
 import java.util.concurrent.TimeUnit;
 
+import com.kuka.common.ThreadUtil;
 import com.kuka.roboticsAPI.applicationModel.RoboticsAPIApplication;
 import static com.kuka.roboticsAPI.motionModel.BasicMotions.*;
 
 import com.kuka.roboticsAPI.conditionModel.ForceCondition;
+import com.kuka.roboticsAPI.conditionModel.JointTorqueCondition;
 import com.kuka.roboticsAPI.controllerModel.Controller;
+import com.kuka.roboticsAPI.deviceModel.JointConfigurationInformation;
+import com.kuka.roboticsAPI.deviceModel.JointEnum;
 import com.kuka.roboticsAPI.deviceModel.JointPosition;
 import com.kuka.roboticsAPI.deviceModel.LBR;
 import com.kuka.roboticsAPI.geometricModel.CartDOF;
 import com.kuka.roboticsAPI.geometricModel.Frame;
 import com.kuka.roboticsAPI.geometricModel.Tool;
 import com.kuka.roboticsAPI.geometricModel.math.CoordinateAxis;
+import com.kuka.roboticsAPI.motionModel.IMotionContainer;
 import com.kuka.roboticsAPI.motionModel.controlModeModel.CartesianImpedanceControlMode;
 
 /**
@@ -42,6 +47,7 @@ public class Demo extends RoboticsAPIApplication {
 	private ForceCondition Z_contact;
 	private CartesianImpedanceControlMode souple;
 	private CartesianImpedanceControlMode rigide;
+	private JointTorqueCondition end;
 	
 	
 	public void initialize() {
@@ -57,6 +63,8 @@ public class Demo extends RoboticsAPIApplication {
 		
 		rigide = new CartesianImpedanceControlMode();
 		rigide.parametrize(CartDOF.TRANSL).setStiffness(5000);
+		
+		end = new JointTorqueCondition(JointEnum.J7, -5, 5);
 		
 		
 				}
@@ -76,21 +84,48 @@ public class Demo extends RoboticsAPIApplication {
 		robot.move(ptp(start).setJointVelocityRel(0.5));
 		
 		System.out.println("Detection de contact selon X");
-		UsedTool.getFrame("TCP").move(linRel().setXOffset(300).setCartVelocity(150).breakWhen(X_contact));
+		IMotionContainer move1 =UsedTool.getFrame("TCP").move(linRel().setXOffset(300).setCartVelocity(150).breakWhen(X_contact));
+		if(move1.getFiredBreakConditionInfo()!=null)
+		{
+			System.out.println("Collision détectée");
+			ThreadUtil.milliSleep(1000);
+		}
+		else
+		{
+			System.out.println("Le premier point est atteint");
+		}
 		robot.move(ptp(start).setJointVelocityRel(0.5));
 		
 		System.out.println("Detection de contact selon Y");
-		UsedTool.getFrame("TCP").move(linRel().setYOffset(300).setCartVelocity(150).breakWhen(X_contact));
+		IMotionContainer move2 =UsedTool.getFrame("TCP").move(linRel().setYOffset(300).setCartVelocity(150).breakWhen(X_contact));
+		if(move2.getFiredBreakConditionInfo()!=null)
+		{
+			System.out.println("Collision détectée");
+			ThreadUtil.milliSleep(1000);
+		}
+		else
+		{
+			System.out.println("Le deuxième point est atteint");
+		}
 		robot.move(ptp(start).setJointVelocityRel(0.5));
 		
 		System.out.println("Detection de contact selon Z");
-		UsedTool.getFrame("TCP").move(linRel().setZOffset(300).setCartVelocity(150).breakWhen(X_contact));
+		IMotionContainer move3 =UsedTool.getFrame("TCP").move(linRel().setZOffset(300).setCartVelocity(150).breakWhen(X_contact));
+		if(move3.getFiredBreakConditionInfo()!=null)
+		{
+			System.out.println("Collision détectée");
+			ThreadUtil.milliSleep(1000);
+		}
+		else
+		{
+			System.out.println("Le troisième point est atteint");
+		}
 		robot.move(ptp(start).setJointVelocityRel(0.5));
 		
 		System.out.println("Garder la position en mode rigide");
-		UsedTool.getFrame("TCP").move(positionHold(rigide, 2, TimeUnit.MINUTES));
+		UsedTool.getFrame("TCP").move(positionHold(rigide, -1, TimeUnit.MINUTES).breakWhen(end));
 		System.out.println("Garder la position en mode souple");
-		UsedTool.getFrame("TCP").move(positionHold(souple, 2, TimeUnit.MINUTES));
+		UsedTool.getFrame("TCP").move(positionHold(souple, -1, TimeUnit.MINUTES).breakWhen(end));
 		
 		
 	}
