@@ -46,7 +46,7 @@ public class RobotApplication extends RoboticsAPIApplication {
 	private ForceCondition Y_contact;
 	private ForceCondition Z_contact;
 	private Double cart_vel;
-	private Frame P1, P2, P3;
+	private Frame P1, P2, P3,P4;
 
 	public void initialize() {
 		controller = (Controller) getContext().getControllers().toArray()[0];
@@ -77,6 +77,7 @@ public class RobotApplication extends RoboticsAPIApplication {
 		P1=getApplicationData().getFrame("/Process").copyWithRedundancy();
 		P2=getApplicationData().getFrame("/Process").copyWithRedundancy();
 		P3=getApplicationData().getFrame("/Process").copyWithRedundancy();
+		P4=getApplicationData().getFrame("/Process").copyWithRedundancy();
 		// Saving the first frame
 		UsedTool.getFrame("TCP").move(linRel(0,200,0).setJointJerkRel(0.2).setCartVelocity(80).breakWhen(Y_contact));
 		P1.setX(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getX()+2.5);
@@ -129,6 +130,7 @@ public class RobotApplication extends RoboticsAPIApplication {
 				spl(getApplicationData().getFrame("/Process/P5")),
 				spl(getApplicationData().getFrame("/Process/P6")),
 				spl(getApplicationData().getFrame("/Process/P7")),
+				spl(getApplicationData().getFrame("/Process/P8")),
 				lin(getApplicationData().getFrame("/Process/P1"))
 				);
 		
