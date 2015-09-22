@@ -123,7 +123,7 @@ public class RobotApplication extends RoboticsAPIApplication {
 
 		
 		process();
-
+		UsedTool.getFrame("TCP").move(linRel(0,0,-100).setCartVelocity(160));
 
 	}
 
@@ -131,13 +131,13 @@ public class RobotApplication extends RoboticsAPIApplication {
 	{
 		Spline process = new Spline(
 				lin(getApplicationData().getFrame("/Process/P1")),
-				spl(getApplicationData().getFrame("/Process/P2")),
+				lin(getApplicationData().getFrame("/Process/P2")),
 				spl(getApplicationData().getFrame("/Process/P3")),
 				spl(getApplicationData().getFrame("/Process/P4")),
 				spl(getApplicationData().getFrame("/Process/P5")),
 				spl(getApplicationData().getFrame("/Process/P6")),
 				spl(getApplicationData().getFrame("/Process/P7")),
-				spl(getApplicationData().getFrame("/Process/P8")),
+				lin(getApplicationData().getFrame("/Process/P8")),
 				lin(getApplicationData().getFrame("/Process/P1"))
 				);
 
