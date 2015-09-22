@@ -78,6 +78,7 @@ public class RobotApplication extends RoboticsAPIApplication {
 		P2=getApplicationData().getFrame("/Process").copyWithRedundancy();
 		P3=getApplicationData().getFrame("/Process").copyWithRedundancy();
 		P4=getApplicationData().getFrame("/Process").copyWithRedundancy();
+		
 		// Saving the first frame
 		UsedTool.getFrame("TCP").move(linRel(0,0,300).setJointJerkRel(0.2).setJointAccelerationRel(0.1).setCartVelocity(50).breakWhen(Z_contact));
 		P4.setY(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getY());
