@@ -99,7 +99,7 @@ public class RobotApplication extends RoboticsAPIApplication {
 		Recaler_base rb = new Recaler_base();
 		AbstractFrame new_base = rb.calcul_base(P1, P2, P3, getApplicationData().getFrame("/Process"));
 		UsedTool.getFrame("TCP").moveAsync(linRel(-20,0,0).setCartVelocity(160));
-		UsedTool.getFrame("TCP").moveAsync(linRel(0,0,-130).setCartVelocity(160));
+		UsedTool.getFrame("TCP").moveAsync(linRel(50,50,-130).setCartVelocity(160));
 		//UsedTool.getFrame("TCP").move(ptp(new_base).setJointVelocityRel(0.1));
 		
 		
