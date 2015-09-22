@@ -97,6 +97,18 @@
                     </redundancy>
                 </redundancyData>
             </frame>
+            <frame name="P6">
+                <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                <additionalInformation>
+                    <info key="LastModificationTime" type="java.lang.Long" value="1442926852608"/>
+                </additionalInformation>
+            </frame>
+            <frame name="P7">
+                <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                <additionalInformation>
+                    <info key="LastModificationTime" type="java.lang.Long" value="1442926853856"/>
+                </additionalInformation>
+            </frame>
         </frame>
     </world>
     <objectTemplates>
