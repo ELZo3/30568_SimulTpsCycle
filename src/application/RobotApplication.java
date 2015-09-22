@@ -56,20 +56,20 @@ public class RobotApplication extends RoboticsAPIApplication {
 		X_contact = ForceCondition.createNormalForceCondition(UsedTool.getFrame("TCP"), CoordinateAxis.X, 5);
 		Y_contact = ForceCondition.createNormalForceCondition(UsedTool.getFrame("TCP"), CoordinateAxis.Y, 5);
 		Z_contact = ForceCondition.createNormalForceCondition(UsedTool.getFrame("TCP"), CoordinateAxis.Z, 5);
-		
+
 		cart_vel=120.0;
-				}
+	}
 
 	public void run() {
 		/*-----------------[Start Position]--------------------------*/
 		JointPosition _start = new JointPosition(
-				Math.toRadians(42.57),
-				Math.toRadians(62.42),
+				Math.toRadians(53.12),
+				Math.toRadians(66.70),
 				Math.toRadians(0),
-				Math.toRadians(-107.66),
-				Math.toRadians(87.88),
-				Math.toRadians(-88.79),
-				Math.toRadians(29.21)
+				Math.toRadians(-90.50),
+				Math.toRadians(97.30),
+				Math.toRadians(-94.21),
+				Math.toRadians(16.50)
 				);
 		UsedTool.getFrame("TCP").moveAsync(ptp(_start).setJointVelocityRel(0.3));
 		/*-----------------------------------------------------------*/
@@ -79,47 +79,51 @@ public class RobotApplication extends RoboticsAPIApplication {
 		P3=getApplicationData().getFrame("/Process").copyWithRedundancy();
 		P4=getApplicationData().getFrame("/Process").copyWithRedundancy();
 		// Saving the first frame
+		UsedTool.getFrame("TCP").move(linRel(0,0,300).setJointJerkRel(0.2).setCartVelocity(80).breakWhen(Z_contact));
+		P4.setY(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getY());
+		System.out.println("First position saved !");
+		// Saving the second frame
 		UsedTool.getFrame("TCP").move(linRel(0,200,0).setJointJerkRel(0.2).setCartVelocity(80).breakWhen(Y_contact));
 		P1.setX(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getX()+2.5);
 		P1.setZ(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getZ());
-		System.out.println("First position saved !");
-		// Saving the second frame
+		System.out.println("Second position saved !");
+		// Saving the third frame
 		UsedTool.getFrame("TCP").moveAsync(linRel(-30,-20,0).setCartVelocity(160));
 		UsedTool.getFrame("TCP").move(linRel(0,200,0).setJointJerkRel(0.2).setCartVelocity(80).breakWhen(Y_contact));
 		P2.setX(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getX()+2.5);
 		P2.setZ(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getZ());
-		System.out.println("Second position saved !");
-		// Saving the third frame
+		System.out.println("Third position saved !");
+		// Saving the fourth frame
 		UsedTool.getFrame("TCP").moveAsync(linRel(-150,-30,0).setCartVelocity(160).setBlendingRel(0.1));
 		UsedTool.getFrame("TCP").moveAsync(linRel(0,80,0).setCartVelocity(160));
 		UsedTool.getFrame("TCP").move(linRel(200,0,0).setJointJerkRel(0.2).setCartVelocity(80).breakWhen(X_contact));
 		P3.setX(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getX());
 		P3.setZ(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getZ()-2.5);
-		System.out.println("Third position saved !");
-		
+		System.out.println("Fourth position saved !");
+
 		Recaler_base rb = new Recaler_base();
 		AbstractFrame new_base = rb.calcul_base(P1, P2, P3, getApplicationData().getFrame("/Process"));
 		UsedTool.getFrame("TCP").moveAsync(linRel(-20,0,0).setCartVelocity(160));
 		UsedTool.getFrame("TCP").moveAsync(linRel(50,50,-130).setCartVelocity(160));
 		//UsedTool.getFrame("TCP").move(ptp(new_base).setJointVelocityRel(0.1));
-		
-		
-				
+
+
+
 		new_base.setRedundancyInformation(robot, getApplicationData().getFrame("/Process").getRedundancyInformationForDevice(robot));
-		
+
 		final IPersistenceEngine engine = this.getContext().getEngine(IPersistenceEngine.class);
 		final XmlApplicationDataSource defaultDataSource = (XmlApplicationDataSource) engine.getDefaultDataSource();
-		
+
 		defaultDataSource.changeFrameTransformation(getApplicationData().getFrame("/Process"), new_base.transformationFromWorld());
-		
+
 		defaultDataSource.saveFile(false);
-		
-		
+
+
 		process();
-		
-		
+
+
 	}
-	
+
 	public void process()
 	{
 		Spline process = new Spline(
@@ -133,10 +137,10 @@ public class RobotApplication extends RoboticsAPIApplication {
 				spl(getApplicationData().getFrame("/Process/P8")),
 				lin(getApplicationData().getFrame("/Process/P1"))
 				);
-		
+
 		UsedTool.getFrame("TCP").move(process.setCartVelocity(150));
 	}
-	
+
 
 	/**
 	 * Auto-generated method stub. Do not modify the contents of this method.
