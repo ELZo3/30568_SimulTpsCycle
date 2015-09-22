@@ -122,7 +122,7 @@ public class RobotApplication extends RoboticsAPIApplication {
 	public void process()
 	{
 		Spline process = new Spline(
-				spl(getApplicationData().getFrame("/Process/P1")),
+				lin(getApplicationData().getFrame("/Process/P1")),
 				spl(getApplicationData().getFrame("/Process/P2")),
 				spl(getApplicationData().getFrame("/Process/P3")),
 				spl(getApplicationData().getFrame("/Process/P4")),
