@@ -6,7 +6,7 @@ import com.kuka.roboticsAPI.geometricModel.ObjectFrame;
 public class Recaler_base {
 	private Frame Base;
 	
-	public Frame calcul_base(Frame P1, Frame P2, Frame P3, ObjectFrame _Ancient_Base)
+	public Frame calcul_base(Frame P1, Frame P2, Frame P3,Frame P4, ObjectFrame _Ancient_Base)
 	{
 		//--------(Copy of the base that we want to calibrate)--------------//
 		Base=_Ancient_Base.copyWithRedundancy();
@@ -49,6 +49,7 @@ public class Recaler_base {
 		
 		Base.setX(detx/det);
 		Base.setZ(detz/det);
+		Base.setY(P4.getY());
 		
 		if(Base.getX()==P1.getX())
 		{
