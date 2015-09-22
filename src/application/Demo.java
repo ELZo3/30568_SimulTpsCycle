@@ -84,7 +84,7 @@ public class Demo extends RoboticsAPIApplication {
 		robot.move(ptp(start).setJointVelocityRel(0.5));
 		
 		System.out.println("Detection de contact selon X");
-		IMotionContainer move1 =UsedTool.getFrame("TCP").move(linRel().setXOffset(-200).setCartVelocity(150).breakWhen(X_contact));
+		IMotionContainer move1 =UsedTool.getFrame("TCP").move(linRel().setXOffset(-200).setCartVelocity(50).breakWhen(X_contact));
 		if(move1.getFiredBreakConditionInfo()!=null)
 		{
 			System.out.println("Collision détectée");
@@ -97,7 +97,7 @@ public class Demo extends RoboticsAPIApplication {
 		robot.move(ptp(start).setJointVelocityRel(0.5));
 		
 		System.out.println("Detection de contact selon Y");
-		IMotionContainer move2 =UsedTool.getFrame("TCP").move(linRel().setYOffset(300).setCartVelocity(150).breakWhen(X_contact));
+		IMotionContainer move2 =UsedTool.getFrame("TCP").move(linRel().setYOffset(400).setCartVelocity(50).breakWhen(X_contact));
 		if(move2.getFiredBreakConditionInfo()!=null)
 		{
 			System.out.println("Collision détectée");
@@ -110,7 +110,7 @@ public class Demo extends RoboticsAPIApplication {
 		robot.move(ptp(start).setJointVelocityRel(0.5));
 		
 		System.out.println("Detection de contact selon Z");
-		IMotionContainer move3 =UsedTool.getFrame("TCP").move(linRel().setZOffset(300).setCartVelocity(150).breakWhen(X_contact));
+		IMotionContainer move3 =UsedTool.getFrame("TCP").move(linRel().setZOffset(400).setCartVelocity(50).breakWhen(X_contact));
 		if(move3.getFiredBreakConditionInfo()!=null)
 		{
 			System.out.println("Collision détectée");
