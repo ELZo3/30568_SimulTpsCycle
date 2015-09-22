@@ -128,7 +128,8 @@ public class RobotApplication extends RoboticsAPIApplication {
 				spl(getApplicationData().getFrame("/Process/P4")),
 				spl(getApplicationData().getFrame("/Process/P5")),
 				spl(getApplicationData().getFrame("/Process/P6")),
-				spl(getApplicationData().getFrame("/Process/P7"))
+				spl(getApplicationData().getFrame("/Process/P7")),
+				lin(getApplicationData().getFrame("/Process/P1"))
 				).setCartVelocity(150);
 		
 		UsedTool.getFrame("TCP").move(process);
