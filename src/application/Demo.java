@@ -76,15 +76,15 @@ public class Demo extends RoboticsAPIApplication {
 		robot.move(ptp(start).setJointVelocityRel(0.5));
 		
 		System.out.println("Detection de contact selon X");
-		UsedTool.getFrame("TCP").move(linRel().setXOffset(100).breakWhen(X_contact));
+		UsedTool.getFrame("TCP").move(linRel().setXOffset(100).setCartVelocity(250).breakWhen(X_contact));
 		robot.move(ptp(start).setJointVelocityRel(0.5));
 		
 		System.out.println("Detection de contact selon Y");
-		UsedTool.getFrame("TCP").move(linRel().setYOffset(100).breakWhen(X_contact));
+		UsedTool.getFrame("TCP").move(linRel().setYOffset(100).setCartVelocity(250).breakWhen(X_contact));
 		robot.move(ptp(start).setJointVelocityRel(0.5));
 		
 		System.out.println("Detection de contact selon Z");
-		UsedTool.getFrame("TCP").move(linRel().setZOffset(100).breakWhen(X_contact));
+		UsedTool.getFrame("TCP").move(linRel().setZOffset(100).setCartVelocity(250).breakWhen(X_contact));
 		robot.move(ptp(start).setJointVelocityRel(0.5));
 		
 		System.out.println("Garder la position en mode rigide");
