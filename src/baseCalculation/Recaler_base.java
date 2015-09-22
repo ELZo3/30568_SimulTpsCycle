@@ -47,8 +47,8 @@ public class Recaler_base {
 		double detx= (X_vector.getC()*Z_vector.getB())-(Z_vector.getC()*X_vector.getB());
 		double dety= (X_vector.getA()*Z_vector.getC())-(Z_vector.getA()*X_vector.getC());
 		
-		Base.setZ(-detx/det);
-		Base.setX(dety/det);
+		Base.setZ(dety/det);
+		Base.setX(-detx/det);
 		
 		if(Base.getX()==P1.getX())
 		{
