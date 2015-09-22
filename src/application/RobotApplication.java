@@ -109,7 +109,7 @@ public class RobotApplication extends RoboticsAPIApplication {
 		AbstractFrame new_base = rb.calcul_base(P1, P2, P3,P4, getApplicationData().getFrame("/Process"));
 		UsedTool.getFrame("TCP").moveAsync(linRel(-20,0,0).setCartVelocity(160).setBlendingRel(0.1));
 		UsedTool.getFrame("TCP").moveAsync(linRel(50,50,-200).setCartVelocity(160).setBlendingRel(0.1));
-		UsedTool.getFrame("TCP").move(ptp(new_base).setJointVelocityRel(0.2));
+		//UsedTool.getFrame("TCP").move(ptp(new_base).setJointVelocityRel(0.2));
 
 
 		new_base.setRedundancyInformation(robot, getApplicationData().getFrame("/Process").getRedundancyInformationForDevice(robot));
