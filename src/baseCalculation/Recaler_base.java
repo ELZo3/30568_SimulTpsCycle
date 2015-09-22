@@ -31,8 +31,8 @@ public class Recaler_base {
 		// We will calculate the vector that contains the following variables a',b' and c'
 		
 		Vector X_vector = new Vector(0,0,0);
-		X_vector.setA(P2.getZ()-P1.getZ());		// a'
-		X_vector.setB(P2.getX()-P1.getX());		// b'
+		X_vector.setA(P2.getX()-P1.getX());		// a'
+		X_vector.setB(P2.getZ()-P1.getZ());		// b'
 		
 		//c' is the result of the scalar product of (a',b') and (P3.getX, P3.getY) vector
 		Vector V_P3 = new Vector(P3.getZ(), P3.getX(), 0);
