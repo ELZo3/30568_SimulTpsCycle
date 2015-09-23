@@ -80,7 +80,7 @@ public class RobotApplication extends RoboticsAPIApplication {
 		P4=getApplicationData().getFrame("/Process").copyWithRedundancy();
 		
 		// Saving the first frame
-		UsedTool.getFrame("TCP").move(linRel(0,0,300).setJointJerkRel(0.2).setJointAccelerationRel(0.1).setCartVelocity(25).breakWhen(Z_contact));
+		UsedTool.getFrame("TCP").move(linRel(0,0,500).setJointJerkRel(0.2).setJointAccelerationRel(0.1).setCartVelocity(25).breakWhen(Z_contact));
 		P4.setY(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getY());
 		System.out.println("First position saved !");
 		UsedTool.getFrame("TCP").moveAsync(linRel(0,0,-20).setJointJerkRel(0.2).setJointAccelerationRel(0.1).setCartVelocity(100));
