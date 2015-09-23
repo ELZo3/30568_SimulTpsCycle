@@ -64,7 +64,7 @@ public class RobotApplication extends RoboticsAPIApplication {
 		process_mode = new CartesianImpedanceControlMode();
 		process_mode.parametrize(CartDOF.TRANSL).setStiffness(4000);
 		process_mode.parametrize(CartDOF.ROT).setStiffness(300);
-		process_mode.setNullSpaceDamping(0.7);
+		process_mode.setNullSpaceDamping(1);
 		
 	}
 
