@@ -155,6 +155,9 @@
                     <measurementRotation method="ABCWorld5D" timestamp="1442837331415"/>
                 </frame>
             </frames>
+            <additionalInformation>
+                <info key="SafetyID" type="java.lang.Integer" value="0"/>
+            </additionalInformation>
             <loadData cogA="0.0" cogB="0.0" cogC="0.0" cogX="66.35903579992232" cogY="67.02447687231167" cogZ="-34.23668065460886" inertiaX="0.0" inertiaY="0.0" inertiaZ="0.0" mass="0.5093949978004947"/>
         </toolTemplate>
     </objectTemplates>
