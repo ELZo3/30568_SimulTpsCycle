@@ -101,7 +101,7 @@ public class RobotApplication extends RoboticsAPIApplication {
 		// Saving the fourth frame
 		UsedTool.getFrame("TCP").moveAsync(linRel(-130,-30,0).setCartVelocity(160).setBlendingRel(0.1));
 		UsedTool.getFrame("TCP").moveAsync(linRel(0,80,0).setCartVelocity(160).setBlendingRel(0.1));
-		UsedTool.getFrame("TCP").move(linRel(200,0,0).setJointJerkRel(0.2).setCartVelocity(25).setJointAccelerationRel(0.1).breakWhen(X_contact));
+		UsedTool.getFrame("TCP").move(linRel(200,0,0).setCartVelocity(25).breakWhen(X_contact));
 		P3.setX(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getX());
 		P3.setZ(robot.getCurrentCartesianPosition(UsedTool.getFrame("TCP"), World.Current.getRootFrame()).getZ()-2.5);
 		System.out.println("Fourth position saved !");
