@@ -12,12 +12,14 @@ import com.kuka.roboticsAPI.controllerModel.Controller;
 import com.kuka.roboticsAPI.deviceModel.JointPosition;
 import com.kuka.roboticsAPI.deviceModel.LBR;
 import com.kuka.roboticsAPI.geometricModel.AbstractFrame;
+import com.kuka.roboticsAPI.geometricModel.CartDOF;
 import com.kuka.roboticsAPI.geometricModel.Frame;
 import com.kuka.roboticsAPI.geometricModel.ObjectFrame;
 import com.kuka.roboticsAPI.geometricModel.Tool;
 import com.kuka.roboticsAPI.geometricModel.World;
 import com.kuka.roboticsAPI.geometricModel.math.CoordinateAxis;
 import com.kuka.roboticsAPI.motionModel.Spline;
+import com.kuka.roboticsAPI.motionModel.controlModeModel.CartesianImpedanceControlMode;
 import com.kuka.roboticsAPI.persistenceModel.IPersistenceEngine;
 import com.kuka.roboticsAPI.persistenceModel.XmlApplicationDataSource;
 
@@ -46,6 +48,7 @@ public class RobotApplication extends RoboticsAPIApplication {
 	private ForceCondition Y_contact;
 	private ForceCondition Z_contact;
 	private Double cart_vel;
+	private CartesianImpedanceControlMode process_mode;
 	private Frame P1, P2, P3,P4;
 
 	public void initialize() {
@@ -56,8 +59,10 @@ public class RobotApplication extends RoboticsAPIApplication {
 		X_contact = ForceCondition.createNormalForceCondition(UsedTool.getFrame("TCP"), CoordinateAxis.X, 6);
 		Y_contact = ForceCondition.createNormalForceCondition(UsedTool.getFrame("TCP"), CoordinateAxis.Y, 4);
 		Z_contact = ForceCondition.createNormalForceCondition(UsedTool.getFrame("TCP"), CoordinateAxis.Z, 4);
-
 		cart_vel=120.0;
+		
+		process_mode = new CartesianImpedanceControlMode();
+		process_mode.parametrize(CartDOF.TRANSL).setStiffness(2500);
 	}
 
 	public void run() {
@@ -142,7 +147,7 @@ public class RobotApplication extends RoboticsAPIApplication {
 				lin(getApplicationData().getFrame("/Process/P1"))
 				);
 
-		UsedTool.getFrame("TCP").move(process.setCartVelocity(150));
+		UsedTool.getFrame("TCP").move(process.setMode(process_mode).setCartVelocity(150));
 	}
 
 
