@@ -53,7 +53,7 @@ public class RobotApplication extends RoboticsAPIApplication {
 		robot = (LBR) controller.getDevices().toArray()[0];
 		UsedTool = getApplicationData().createFromTemplate("UsedTool");
 		UsedTool.attachTo(robot.getFlange());
-		X_contact = ForceCondition.createNormalForceCondition(UsedTool.getFrame("TCP"), CoordinateAxis.X, 4);
+		X_contact = ForceCondition.createNormalForceCondition(UsedTool.getFrame("TCP"), CoordinateAxis.X, 6);
 		Y_contact = ForceCondition.createNormalForceCondition(UsedTool.getFrame("TCP"), CoordinateAxis.Y, 4);
 		Z_contact = ForceCondition.createNormalForceCondition(UsedTool.getFrame("TCP"), CoordinateAxis.Z, 4);
 
