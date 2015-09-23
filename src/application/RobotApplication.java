@@ -62,7 +62,9 @@ public class RobotApplication extends RoboticsAPIApplication {
 		cart_vel=120.0;
 		
 		process_mode = new CartesianImpedanceControlMode();
-		process_mode.parametrize(CartDOF.TRANSL).setStiffness(2500);
+		process_mode.parametrize(CartDOF.TRANSL).setStiffness(3200);
+		process_mode.parametrize(CartDOF.ROT).setStiffness(300);
+		
 	}
 
 	public void run() {
