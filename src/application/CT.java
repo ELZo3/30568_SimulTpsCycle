@@ -1,6 +1,8 @@
 package application;
 
 
+import java.math.MathContext;
+
 import com.kuka.roboticsAPI.applicationModel.RoboticsAPIApplication;
 import static com.kuka.roboticsAPI.motionModel.BasicMotions.*;
 import com.kuka.roboticsAPI.controllerModel.Controller;
@@ -35,6 +37,9 @@ public class CT extends RoboticsAPIApplication {
 
 	public void run() {
 		lbr_iiwa_14_R820_1.move(ptpHome());
+		lbr_iiwa_14_R820_1.move(ptp(Math.toRadians(50),0,0,0,0,0,0));
+		lbr_iiwa_14_R820_1.move(ptp(0,0,0,Math.toRadians(-100),0,0,0));
+		
 	}
 
 	/**
