@@ -37,6 +37,7 @@ public class CT extends RoboticsAPIApplication {
 	}
 
 	public void run() {
+		Override:=30;
 		lbr_iiwa_14_R820_1.move(ptpHome().setJointVelocityRel(0.2));
 		lbr_iiwa_14_R820_1.move(ptp(Math.toRadians(50),0,0,0,0,0,0));
 		lbr_iiwa_14_R820_1.move(ptp(0,0,0,Math.toRadians(-100),0,0,0));
