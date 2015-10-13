@@ -203,11 +203,14 @@
             </additionalInformation>
             <loadData cogA="0.0" cogB="0.0" cogC="0.0" cogX="66.35903579992232" cogY="67.02447687231167" cogZ="-34.23668065460886" inertiaX="0.0" inertiaY="0.0" inertiaZ="0.0" mass="0.5093949978004947"/>
         </toolTemplate>
-        <toolTemplate class="" name="pointe">
+        <toolTemplate class="" defaultMotionFrameRef="/TCP" name="pointe">
             <frames>
                 <frame name="TCP">
                     <transformation a="0.0" b="0.0" c="0.0" x="-16.724216652324678" y="16.43815881969356" z="94.99715802759277"/>
                     <measurementTranslation calculationError="1.2642447569739552" method="XYZ4Point" timestamp="1444739320881"/>
+                </frame>
+                <frame name="Frame">
+                    <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
                 </frame>
             </frames>
             <loadData cogA="0.0" cogB="0.0" cogC="0.0" cogX="0.0" cogY="0.0" cogZ="0.0" inertiaX="0.0" inertiaY="0.0" inertiaZ="0.0" mass="0.0"/>

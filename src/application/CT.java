@@ -7,6 +7,7 @@ import com.kuka.roboticsAPI.applicationModel.RoboticsAPIApplication;
 import static com.kuka.roboticsAPI.motionModel.BasicMotions.*;
 import com.kuka.roboticsAPI.controllerModel.Controller;
 import com.kuka.roboticsAPI.deviceModel.LBR;
+import com.kuka.roboticsAPI.geometricModel.Tool;
 import com.kuka.roboticsAPI.params.VelocityRelParameter;
 
 /**
@@ -29,18 +30,21 @@ import com.kuka.roboticsAPI.params.VelocityRelParameter;
 public class CT extends RoboticsAPIApplication {
 	private Controller kuka_Sunrise_Cabinet_1;
 	private LBR lbr_iiwa_14_R820_1;
+	private Tool pointe;
 
 	public void initialize() {
 		kuka_Sunrise_Cabinet_1 = getController("KUKA_Sunrise_Cabinet_1");
 		lbr_iiwa_14_R820_1 = (LBR) getDevice(kuka_Sunrise_Cabinet_1,
 				"LBR_iiwa_14_R820_1");
+		pointe=getApplicationData().createFromTemplate("pointe");
+		pointe.attachTo(lbr_iiwa_14_R820_1.getFlange());
 	}
 
 	public void run() {
 		lbr_iiwa_14_R820_1.move(ptpHome());
 		lbr_iiwa_14_R820_1.move(ptp(Math.toRadians(50),Math.toRadians(50),0,Math.toRadians(-50),0,Math.toRadians(-50),0).setJointVelocityRel(0.2));
-		lbr_iiwa_14_R820_1.move(lin(getApplicationData().getFrame("/TC/P1")));
-		lbr_iiwa_14_R820_1.move(lin(getApplicationData().getFrame("/TC/P2")));
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/TC/P1")));
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/TC/P2")));
 		lbr_iiwa_14_R820_1.move(ptpHome().setJointVelocityRel(0.2));
 
 	}
