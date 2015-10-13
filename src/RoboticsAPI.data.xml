@@ -147,10 +147,11 @@
             </frame>
         </frame>
         <frame name="TC">
-            <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+            <transformation a="-2.613133354689894E-4" b="6.675384917234825E-5" c="1.936565912769923E-5" x="451.81763418480193" y="-248.19880686933382" z="-11.24231622093859"/>
             <additionalInformation>
-                <info key="LastModificationTime" type="java.lang.Long" value="1444744581281"/>
+                <info key="LastModificationTime" type="java.lang.Long" value="1444743695396"/>
                 <info key="UseAsBaseForJogging" type="java.lang.Boolean" value="true"/>
+                <info measurementMethod="Base3Point" timestamp="1444743695396" type="com.kuka.roboticsAPI.deviceModel.MeasurementInformation"/>
             </additionalInformation>
             <redundancyData>
                 <redundancy transformationProviderName="legacy" type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy"/>
