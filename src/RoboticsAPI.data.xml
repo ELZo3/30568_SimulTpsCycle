@@ -199,9 +199,9 @@
                 <redundancy transformationProviderName="legacy" type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy"/>
             </redundancyData>
             <frame name="A1">
-                <transformation a="0.0" b="0.0" c="0.0" x="681.7" y="205.0" z="297.28"/>
+                <transformation a="0.0" b="0.5235987755982988" c="3.141592653589793" x="681.7" y="205.0" z="297.28"/>
                 <additionalInformation>
-                    <info key="LastModificationTime" type="java.lang.Long" value="1444822422445"/>
+                    <info key="LastModificationTime" type="java.lang.Long" value="1444822853243"/>
                 </additionalInformation>
                 <redundancyData>
                     <redundancy transformationProviderName="legacy" type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy"/>
