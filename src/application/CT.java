@@ -49,6 +49,9 @@ public class CT extends RoboticsAPIApplication {
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A6"))); // attention changer à 448.3
 		
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/B1"))); // attention changer à 448.3
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/B2"))); // attention changer à 448.3
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/B5"))); // attention changer à 448.3
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/B6"))); // attention changer à 448.3
 		
 		//lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/TC/P1")));
 		//lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/TC/P2")));
