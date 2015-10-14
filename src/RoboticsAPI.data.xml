@@ -202,6 +202,60 @@
                     </redundancy>
                 </redundancyData>
             </frame>
+            <frame name="Ctrl1">
+                <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                <additionalInformation>
+                    <info key="LastModificationTime" type="java.lang.Long" value="1444835737950"/>
+                </additionalInformation>
+                <redundancyData>
+                    <redundancy transformationProviderName="legacy" type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy"/>
+                </redundancyData>
+            </frame>
+            <frame name="Ctrl2">
+                <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                <additionalInformation>
+                    <info key="LastModificationTime" type="java.lang.Long" value="1444835752136"/>
+                </additionalInformation>
+                <redundancyData>
+                    <redundancy transformationProviderName="legacy" type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy"/>
+                </redundancyData>
+            </frame>
+            <frame name="Ctrl3">
+                <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                <additionalInformation>
+                    <info key="LastModificationTime" type="java.lang.Long" value="1444835761082"/>
+                </additionalInformation>
+                <redundancyData>
+                    <redundancy transformationProviderName="legacy" type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy"/>
+                </redundancyData>
+            </frame>
+            <frame name="Ctrl4">
+                <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                <additionalInformation>
+                    <info key="LastModificationTime" type="java.lang.Long" value="1444835769269"/>
+                </additionalInformation>
+                <redundancyData>
+                    <redundancy transformationProviderName="legacy" type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy"/>
+                </redundancyData>
+            </frame>
+            <frame name="Ctrl5">
+                <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                <additionalInformation>
+                    <info key="LastModificationTime" type="java.lang.Long" value="1444835776420"/>
+                </additionalInformation>
+                <redundancyData>
+                    <redundancy transformationProviderName="legacy" type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy"/>
+                </redundancyData>
+            </frame>
+            <frame name="Ctrl6">
+                <transformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
+                <additionalInformation>
+                    <info key="LastModificationTime" type="java.lang.Long" value="1444835783412"/>
+                </additionalInformation>
+                <redundancyData>
+                    <redundancy transformationProviderName="legacy" type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy"/>
+                </redundancyData>
+            </frame>
         </frame>
     </world>
     <objectTemplates>
