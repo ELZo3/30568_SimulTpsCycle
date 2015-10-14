@@ -248,9 +248,9 @@
                 </redundancyData>
             </frame>
             <frame name="Ctrl6">
-                <transformation a="1.5707963267948966" b="1.0471975511965976" c="1.5707963267948966" x="600.0" y="-68.5" z="795.0"/>
+                <transformation a="1.5707963267948966" b="1.0471975511965976" c="1.5707963267948966" x="580.0" y="-68.5" z="775.0"/>
                 <additionalInformation>
-                    <info key="LastModificationTime" type="java.lang.Long" value="1444838218668"/>
+                    <info key="LastModificationTime" type="java.lang.Long" value="1444838310465"/>
                 </additionalInformation>
                 <redundancyData>
                     <redundancy transformationProviderName="legacy" type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy"/>
