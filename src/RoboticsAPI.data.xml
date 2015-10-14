@@ -75,9 +75,9 @@
                 </redundancyData>
             </frame>
             <frame name="B1">
-                <transformation a="3.141482889299694" b="0.5235014726025602" c="-3.1415374168497805" x="500.709699963762" y="-35.05229846478276" z="162.5021060130935"/>
+                <transformation a="3.141482889299694" b="0.5235014726025602" c="-3.1415374168497805" x="579.87" y="-445.0" z="234.16"/>
                 <additionalInformation>
-                    <info key="LastModificationTime" type="java.lang.Long" value="1444821240634"/>
+                    <info key="LastModificationTime" type="java.lang.Long" value="1444824947234"/>
                     <info base="LBR_iiwa_14_R820_1" controller="KUKA_Sunrise_Cabinet_1" device="LBR_iiwa_14_R820_1" tcpName="Flange" tool="Flange" type="com.kuka.roboticsAPI.deviceModel.TeachInformation">
                         <tcpTransformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
                     </info>
