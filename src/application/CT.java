@@ -84,11 +84,11 @@ public class CT extends RoboticsAPIApplication {
 		ThreadUtil.milliSleep(500);	
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/Ctrl4")));
 		ThreadUtil.milliSleep(500);	
-		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/Ctrl5")));
+		/*			lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/Ctrl5")));
 		ThreadUtil.milliSleep(500);	
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/Ctrl6")));
 		ThreadUtil.milliSleep(500);
-/*		
+	
 		//Drop Sensor 1
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/B1")));
 		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,-30).setBlendingCart(2));
