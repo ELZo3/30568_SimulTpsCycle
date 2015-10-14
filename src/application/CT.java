@@ -42,7 +42,7 @@ public class CT extends RoboticsAPIApplication {
 
 	public void run() {
 		//lbr_iiwa_14_R820_1.move(ptpHome());
-		/*
+		
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A1")));
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A2")));
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A5"))); // attention changer à 448.3
@@ -52,7 +52,7 @@ public class CT extends RoboticsAPIApplication {
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/B2"))); // attention changer à 448.3
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/B5"))); // attention changer à 448.3
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/B6"))); // attention changer à 448.3 
-		 */
+		 
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/C1"))); // attention changer à 448.3
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/C2"))); // attention changer à 448.3
 		
