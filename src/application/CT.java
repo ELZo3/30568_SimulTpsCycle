@@ -122,7 +122,9 @@ public class CT extends RoboticsAPIApplication {
 		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,30).setBlendingCart(2));
 		
 		//Return A1
-		lbr_iiwa_14_R820_1.moveAsync(ptp(getApplicationData().getFrame("/Version1robot1/A1")));
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A1")));
+		
+		
 		/*
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A1")));
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A2")));
