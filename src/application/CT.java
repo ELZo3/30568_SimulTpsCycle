@@ -41,11 +41,12 @@ public class CT extends RoboticsAPIApplication {
 	}
 
 	public void run() {
-		lbr_iiwa_14_R820_1.move(ptpHome());
-		lbr_iiwa_14_R820_1.move(ptp(Math.toRadians(50),Math.toRadians(50),0,Math.toRadians(-50),0,Math.toRadians(-50),0).setJointVelocityRel(0.2));
-		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/TC/P1")));
-		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/TC/P2")));
-		lbr_iiwa_14_R820_1.move(ptpHome().setJointVelocityRel(0.2));
+		//lbr_iiwa_14_R820_1.move(ptpHome());
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A1")));
+		
+		//lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/TC/P1")));
+		//lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/TC/P2")));
+		//lbr_iiwa_14_R820_1.move(ptpHome().setJointVelocityRel(0.2));
 
 	}
 

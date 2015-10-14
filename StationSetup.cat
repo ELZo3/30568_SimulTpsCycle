@@ -29,7 +29,7 @@
                         <Value>0.0</Value>
                     </Property>
                     <Property displayName="Drehung um Z-Achse in ° (A-Winkel)" key="A" regex="(-|\+)?(((1)(8)(0)((\.)(0))?)|((1)[0-7][0-9]((\.)[0-9])?)|([1-9][0-9]((\.)[0-9])?)|([0-9]((\.)[0-9])?))" showInEditor="true" showInWizard="true" type="double">
-                        <Value>-45.0</Value>
+                        <Value>0.0</Value>
                     </Property>
                     <Property displayName="Drehung um Y-Achse in ° (B-Winkel)" key="B" regex="(-|\+)?(((9)(0)(\.0)?)|(([0-8])?([0-9])((\.)[0-9])?))" showInEditor="true" showInWizard="true" type="double">
                         <Value>0.0</Value>
@@ -60,9 +60,9 @@
             <SoftwareItem autoSelected="true" installItem="true" installedVersion="1" itemPath="com.kuka/HandGuidingFeature" selectedVersion="1" usage="Feature"/>
             <SoftwareItem autoSelected="true" installItem="true" installedVersion="1" itemPath="com.kuka/IODrivers" selectedVersion="1" usage="Library"/>
             <SoftwareItem autoSelected="true" installItem="true" installedVersion="1" itemPath="com.kuka/IOManager" selectedVersion="1" usage="Library"/>
-            <SoftwareItem autoSelected="true" installItem="true" installedVersion="92804" itemPath="com.kuka/IkarusAntiVirDefinition" selectedVersion="92804" usage="Library"/>
-            <SoftwareItem autoSelected="true" installItem="true" installedVersion="2.7.30" itemPath="com.kuka/IkarusAntiVirInstallation" selectedVersion="2.7.30" usage="Feature"/>
-            <SoftwareItem autoSelected="true" installItem="true" installedVersion="1.0.0.14" itemPath="com.kuka/IkarusAntiVirService" selectedVersion="1.0.0.14" usage="Library"/>
+            <SoftwareItem autoSelected="true" installItem="true" installedVersion="NONE" itemPath="com.kuka/IkarusAntiVirDefinition" selectedVersion="NONE" usage="Library"/>
+            <SoftwareItem autoSelected="true" installItem="true" installedVersion="NONE" itemPath="com.kuka/IkarusAntiVirInstallation" selectedVersion="NONE" usage="Feature"/>
+            <SoftwareItem autoSelected="true" installItem="true" installedVersion="NONE" itemPath="com.kuka/IkarusAntiVirService" selectedVersion="NONE" usage="Library"/>
             <SoftwareItem autoSelected="true" installItem="true" installedVersion="NONE" itemPath="com.kuka/InjectionLib" selectedVersion="NONE" usage="Library"/>
             <SoftwareItem autoSelected="true" installItem="true" installedVersion="1" itemPath="com.kuka/JavaVM" selectedVersion="1" usage="Library"/>
             <SoftwareItem autoSelected="true" installItem="true" installedVersion="NONE" itemPath="com.kuka/KMPomniMoveApiExtension" selectedVersion="NONE" usage="Library"/>
