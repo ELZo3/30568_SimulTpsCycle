@@ -42,26 +42,51 @@ public class CT extends RoboticsAPIApplication {
 
 	public void run() {
 		//lbr_iiwa_14_R820_1.move(ptpHome());
-		//Prise depose PCB1
 		
+		//Reading OCR + Pick Up PCB1
 		lbr_iiwa_14_R820_1.moveAsync(ptp(getApplicationData().getFrame("/Version1robot1/A1")).setBlendingCart(2));
+		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,-21).setBlendingCart(2));
+		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,21).setBlendingCart(2));
+		
+		
+		//Drop PCB1		
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/C1"))); 	
 		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,-10).setBlendingCart(2));
 		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,10).setBlendingCart(2));
 		
-		
-		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/C1"))); 	
-		
-		//Prise depose PCB2
+		//Reading OCR + Pick Up PCB2
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A1")));
+		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,-21).setBlendingCart(2));
+		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,21).setBlendingCart(2));
+
+		//Drop PCB2
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/C2"))); 
-		
-		//Prise depose sensor 1		
+		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,-10).setBlendingCart(2));
+		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,10).setBlendingCart(2));		
+
+		//Pick Up Sensor 1		
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/D1")));
-		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/B1")));
+		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,-30).setBlendingCart(2));
+		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,30).setBlendingCart(2));
+
+		//Control Sensor 1
 		
-		//Prise depose sensor 2
+		//Drop Sensor 1
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/B1")));
+		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,-30).setBlendingCart(2));
+		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,30).setBlendingCart(2));
+		
+		//Pick Up Sensor 2
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/D2")));
+		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,-30).setBlendingCart(2));
+		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,30).setBlendingCart(2));
+	
+		//Control Sensor 2
+		
+		//Drop Sensor 2
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/B1")));		
+		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,-30).setBlendingCart(2));
+		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,30).setBlendingCart(2));
 		/*
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A1")));
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A2")));
@@ -79,10 +104,6 @@ public class CT extends RoboticsAPIApplication {
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/D1"))); 
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/D2")));
 		*/	
-		//lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/TC/P1")));
-		//lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/TC/P2")));
-		//lbr_iiwa_14_R820_1.move(ptpHome().setJointVelocityRel(0.2));
-
 	}
 
 	/**
