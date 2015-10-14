@@ -43,7 +43,7 @@ public class CT extends RoboticsAPIApplication {
 
 	public void run() {
 		//lbr_iiwa_14_R820_1.move(ptpHome());
-		
+/*		
 		//Reading OCR + Pick Up PCB1
 		lbr_iiwa_14_R820_1.moveAsync(ptp(getApplicationData().getFrame("/Version1robot1/A1")).setBlendingCart(2));
 		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,-21).setBlendingCart(2));
@@ -74,9 +74,9 @@ public class CT extends RoboticsAPIApplication {
 		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,-30).setBlendingCart(2));
 		ThreadUtil.milliSleep(500);
 		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,30).setBlendingCart(2));
-
+*/
 		//Control Sensor 1
-		/*lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/Ctrl1"))); 	
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/Ctrl1"))); 	
 		ThreadUtil.milliSleep(500);
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/Ctrl2")));
 		ThreadUtil.milliSleep(500);		
@@ -87,8 +87,8 @@ public class CT extends RoboticsAPIApplication {
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/Ctrl5")));
 		ThreadUtil.milliSleep(500);	
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/Ctrl6")));
-		ThreadUtil.milliSleep(500);*/
-		
+		ThreadUtil.milliSleep(500);
+/*		
 		//Drop Sensor 1
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/B1")));
 		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,-30).setBlendingCart(2));
@@ -113,13 +113,16 @@ public class CT extends RoboticsAPIApplication {
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/Ctrl5")));
 		ThreadUtil.milliSleep(500);	
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/Ctrl6")));
-		ThreadUtil.milliSleep(500);*/
+		ThreadUtil.milliSleep(500);
 		
 		//Drop Sensor 2
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/B1")));		
 		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,-30).setBlendingCart(2));
 		ThreadUtil.milliSleep(2000);
 		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,30).setBlendingCart(2));
+		
+		//Return A1
+		lbr_iiwa_14_R820_1.moveAsync(ptp(getApplicationData().getFrame("/Version1robot1/A1")));
 		/*
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A1")));
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A2")));
