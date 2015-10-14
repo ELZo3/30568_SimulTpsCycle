@@ -75,9 +75,9 @@
                 </redundancyData>
             </frame>
             <frame name="B1">
-                <transformation a="3.141482889299694" b="0.5235014726025602" c="-3.1415374168497805" x="579.87" y="-445.0" z="234.16"/>
+                <transformation a="3.1414007056439157" b="0.5234593523703763" c="3.1415286542077907" x="579.8558925161637" y="-445.02250346220166" z="234.1211123085916"/>
                 <additionalInformation>
-                    <info key="LastModificationTime" type="java.lang.Long" value="1444824947234"/>
+                    <info key="LastModificationTime" type="java.lang.Long" value="1444821441799"/>
                     <info base="LBR_iiwa_14_R820_1" controller="KUKA_Sunrise_Cabinet_1" device="LBR_iiwa_14_R820_1" tcpName="Flange" tool="Flange" type="com.kuka.roboticsAPI.deviceModel.TeachInformation">
                         <tcpTransformation a="0.0" b="0.0" c="0.0" x="0.0" y="0.0" z="0.0"/>
                     </info>
@@ -85,8 +85,8 @@
                 <redundancyData>
                     <redundancy transformationProviderName="KUKA_Sunrise_Cabinet_1/LBR_iiwa_14_R820_1" type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy">
                         <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$StatusParameter" value="6" valueType="java.lang.Integer"/>
-                        <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$TurnParameter" value="60" valueType="java.lang.Integer"/>
-                        <info type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy$E1Parameter" value="-0.4135120246730858" valueType="java.lang.Double"/>
+                        <info type="com.kuka.roboticsAPI.deviceModel.StatusTurnRedundancy$TurnParameter" value="61" valueType="java.lang.Integer"/>
+                        <info type="com.kuka.roboticsAPI.deviceModel.LBRE1Redundancy$E1Parameter" value="-1.1822123869461363" valueType="java.lang.Double"/>
                     </redundancy>
                 </redundancyData>
             </frame>
