@@ -42,23 +42,37 @@ public class CT extends RoboticsAPIApplication {
 
 	public void run() {
 		//lbr_iiwa_14_R820_1.move(ptpHome());
+		//Prise depose PCB1
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A1")));
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/C1"))); 	
+		//Prise depose PCB2
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A1")));
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/C2"))); 
 		
+		//Prise depose sensor 1		
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/D1")));
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/B1")));
+		
+		//Prise depose sensor 2
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/D2")));
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/B1")));		
+		/*
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A1")));
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A2")));
-		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A5"))); // attention changer à 448.3
-		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A6"))); // attention changer à 448.3
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A5"))); 
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A6"))); 
 		
-		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/B1"))); // attention changer à 448.3
-		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/B2"))); // attention changer à 448.3
-		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/B5"))); // attention changer à 448.3
-		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/B6"))); // attention changer à 448.3 
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/B1"))); 
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/B2"))); 
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/B5"))); 
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/B6")));  
 		 
-		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/C1"))); // attention changer à 448.3
-		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/C2"))); // attention changer à 448.3
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/C1"))); 
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/C2"))); 
 		
-		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/D1"))); // attention changer à 448.3
-		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/D2"))); // attention changer à 448.3
-				
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/D1"))); 
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/D2")));
+		*/	
 		//lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/TC/P1")));
 		//lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/TC/P2")));
 		//lbr_iiwa_14_R820_1.move(ptpHome().setJointVelocityRel(0.2));
