@@ -131,12 +131,12 @@ public class CT extends RoboticsAPIApplication {
 		//********************************************************************************
 		//*******************************Remplacement tray pcb****************************
 		//********************************************************************************
-		
+		/*
 		//Pickup Tray vide
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A1")));
-		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,-30));
+		lbr_iiwa_14_R820_1.getFlange().move(linRel(0,0,-30));
 		ThreadUtil.milliSleep(500);
-		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,30));
+		lbr_iiwa_14_R820_1.getFlange().move(linRel(0,0,30));
 		
 		//Drop Tray vide
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/G5")));
@@ -150,17 +150,40 @@ public class CT extends RoboticsAPIApplication {
 		ThreadUtil.milliSleep(500);
 		lbr_iiwa_14_R820_1.getFlange().move(linRel(0,0,30));
 		
-		//Dropp Tray plein
+		//Drop Tray plein
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A1")));
 		lbr_iiwa_14_R820_1.getFlange().move(linRel(0,0,-30));
 		ThreadUtil.milliSleep(500);
 		lbr_iiwa_14_R820_1.getFlange().move(linRel(0,0,30));
-		
+		*/
 		
 		//********************************************************************************
 		//*******************************Remplacement tray sensor*************************
 	    //********************************************************************************		
 		
+		//Pickup Tray vide
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/B1")));
+		lbr_iiwa_14_R820_1.getFlange().move(linRel(0,0,-10));
+		ThreadUtil.milliSleep(500);
+		lbr_iiwa_14_R820_1.getFlange().move(linRel(0,0,10));
+		
+		//Drop Tray vide
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/G1")));
+		lbr_iiwa_14_R820_1.getFlange().move(linRel(0,0,-10));
+		ThreadUtil.milliSleep(500);
+		lbr_iiwa_14_R820_1.getFlange().move(linRel(0,0,10));
+		
+		//Pickup Tray plein
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/G3")));
+		lbr_iiwa_14_R820_1.getFlange().move(linRel(0,0,-10));
+		ThreadUtil.milliSleep(500);
+		lbr_iiwa_14_R820_1.getFlange().move(linRel(0,0,10));
+		
+		//Drop Tray plein
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/B1")));
+		lbr_iiwa_14_R820_1.getFlange().move(linRel(0,0,-10));
+		ThreadUtil.milliSleep(500);
+		lbr_iiwa_14_R820_1.getFlange().move(linRel(0,0,10));
 		
 	}
 
