@@ -140,21 +140,21 @@ public class CT extends RoboticsAPIApplication {
 		
 		//Drop Tray vide
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/G5")));
-		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,-30));
+		lbr_iiwa_14_R820_1.getFlange().move(linRel(0,0,-30));
 		ThreadUtil.milliSleep(500);
-		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,30));
+		lbr_iiwa_14_R820_1.getFlange().move(linRel(0,0,30));
 		
 		//Pickup Tray plein
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/G7")));
-		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,-30));
+		lbr_iiwa_14_R820_1.getFlange().move(linRel(0,0,-30));
 		ThreadUtil.milliSleep(500);
-		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,30));
+		lbr_iiwa_14_R820_1.getFlange().move(linRel(0,0,30));
 		
 		//Dropp Tray plein
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A1")));
-		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,-30));
+		lbr_iiwa_14_R820_1.getFlange().move(linRel(0,0,-30));
 		ThreadUtil.milliSleep(500);
-		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,30));
+		lbr_iiwa_14_R820_1.getFlange().move(linRel(0,0,30));
 		
 		
 		//********************************************************************************
