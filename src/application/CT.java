@@ -43,13 +43,15 @@ public class CT extends RoboticsAPIApplication {
 
 	public void run() {
 		//lbr_iiwa_14_R820_1.move(ptpHome());
+		//********************************************************************************
+		//*******************************Cycle auto***************************************
+		//********************************************************************************
 	    /*
 		//Reading OCR + Pick Up PCB1
 		lbr_iiwa_14_R820_1.moveAsync(ptp(getApplicationData().getFrame("/Version1robot1/A1")).setBlendingCart(2));
 		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,-21).setBlendingRel(0.1));
 		ThreadUtil.milliSleep(1000);
 		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,21).setBlendingRel(0.1));
-		ThreadUtil.milliSleep(1000);
 		
 		//Drop PCB1		
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/C1"))); 	
@@ -125,31 +127,41 @@ public class CT extends RoboticsAPIApplication {
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A1")));
 		*/
 		
-		//Remplacement tray pcb
+		
+		//********************************************************************************
+		//*******************************Remplacement tray pcb****************************
+		//********************************************************************************
+		
+		//Pickup Tray vide
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A1")));
+		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,-30));
+		ThreadUtil.milliSleep(500);
+		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,30));
+		
+		//Drop Tray vide
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/G5")));
+		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,-30));
+		ThreadUtil.milliSleep(500);
+		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,30));
+		
+		//Pickup Tray plein
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/G7")));
+		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,-30));
+		ThreadUtil.milliSleep(500);
+		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,30));
+		
+		//Dropp Tray plein
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A1")));
+		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,-30));
+		ThreadUtil.milliSleep(500);
+		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,30));
 		
-		//Remplacement Tray sensor
 		
-		/*
-		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A1")));
-		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A2")));
-		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A5"))); 
-		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A6"))); 
+		//********************************************************************************
+		//*******************************Remplacement tray sensor*************************
+	    //********************************************************************************		
 		
-		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/B1"))); 
-		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/B2"))); 
-		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/B5"))); 
-		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/B6")));  
-		 
-		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/C1"))); 
-		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/C2"))); 
 		
-		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/D1"))); 
-		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/D2")));
-		*/	
 	}
 
 	/**
