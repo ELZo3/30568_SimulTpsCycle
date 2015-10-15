@@ -46,7 +46,7 @@ public class CT extends RoboticsAPIApplication {
 		//********************************************************************************
 		//*******************************Cycle auto***************************************
 		//********************************************************************************
-	    /*
+	    
 		//Reading OCR + Pick Up PCB1
 		lbr_iiwa_14_R820_1.moveAsync(ptp(getApplicationData().getFrame("/Version1robot1/A1")).setBlendingCart(2));
 		lbr_iiwa_14_R820_1.getFlange().moveAsync(linRel(0,0,-21).setBlendingRel(0.1));
@@ -125,13 +125,13 @@ public class CT extends RoboticsAPIApplication {
 		
 		//Return A1
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A1")));
-		*/
+		
 		
 		
 		//********************************************************************************
 		//*******************************Remplacement tray pcb****************************
 		//********************************************************************************
-		/*
+		
 		//Pickup Tray vide
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A1")));
 		lbr_iiwa_14_R820_1.getFlange().move(linRel(0,0,-30));
@@ -155,7 +155,7 @@ public class CT extends RoboticsAPIApplication {
 		lbr_iiwa_14_R820_1.getFlange().move(linRel(0,0,-30));
 		ThreadUtil.milliSleep(500);
 		lbr_iiwa_14_R820_1.getFlange().move(linRel(0,0,30));
-		*/
+		
 		
 		//********************************************************************************
 		//*******************************Remplacement tray sensor*************************
