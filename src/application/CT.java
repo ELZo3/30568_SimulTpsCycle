@@ -124,10 +124,14 @@ public class CT extends RoboticsAPIApplication {
 		//Return A1
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A1")));
 		*/
-		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/G1")));
-		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/G3")));
+		
+		//Remplacement tray pcb
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A1")));
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/G5")));
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/G7")));
+		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A1")));
+		
+		//Remplacement Tray sensor
 		
 		/*
 		lbr_iiwa_14_R820_1.move(ptp(getApplicationData().getFrame("/Version1robot1/A1")));
